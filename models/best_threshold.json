@@ -1,0 +1,7 @@
+{
+    "model": "XGBClassifier",
+    "threshold": 0.74,
+    "recall": 0.7580872011251758,
+    "precision": 0.9694244604316546,
+    "f1-score": 0.850828729281768
+}
