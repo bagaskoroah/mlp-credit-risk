@@ -1,0 +1,35 @@
+best_model: models/xgb_model.pkl
+data_X_test: data/interim/X_test.pkl
+data_X_train: data/interim/X_train.pkl
+data_X_valid: data/interim/X_valid.pkl
+data_prep_X_test: data/processed/X_test_prep.pkl
+data_prep_X_train: data/processed/X_train_prep.pkl
+data_prep_X_valid: data/processed/X_valid_prep.pkl
+data_prep_y_train: data/processed/y_train_prep.pkl
+data_ros_X_train: data/processed/X_train_ros.pkl
+data_ros_y_train: data/processed/y_train_ros.pkl
+data_y_test: data/interim/y_test.pkl
+data_y_train: data/interim/y_train.pkl
+data_y_valid: data/interim/y_valid.pkl
+label: loan_status
+ohe_default_on_file: models/ohe_default_on_file.pkl
+ohe_home_ownership: models/ohe_home_ownership.pkl
+ohe_loan_grade: models/ohe_loan_grade.pkl
+ohe_loan_intent: models/ohe_loan_intent.pkl
+ohe_prefix:
+- home_ownership
+- loan_intent
+- loan_grade
+- default_onfile
+ohe_subset:
+- person_home_ownership
+- loan_intent
+- loan_grade
+- cb_person_default_on_file
+random_state: 42
+raw_data: data/raw/credit_risk_dataset.csv
+subset_data:
+- person_emp_length
+- loan_int_rate
+train_valid_size: 0.2
+valid_test_size: 0.5

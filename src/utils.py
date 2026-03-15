@@ -2,6 +2,72 @@ import pandas as pd
 from typing import Tuple, Optional
 from sklearn.model_selection import train_test_split
 import joblib
+import yaml
+import json
+
+# define load config function
+def load_config(config_path: str) -> dict:
+    """
+    Load the configuration file.
+
+    Parameters:
+    ----------
+    config_path : str
+        Configuration file location.
+    
+    Returns:
+    -------
+    config : dict
+        Loaded configuration file.
+    """
+    try:
+        # load config.yaml
+        with open(config_path, 'r') as file:
+           config = yaml.safe_load(file)
+        # if .yaml is empty
+        if config is None:
+            raise ValueError('Configuration file is empty.')
+    
+    # yaml is not found in the directory
+    except FileNotFoundError:
+        raise FileNotFoundError('Config file not found in:', config_path)
+
+    return config
+
+# define update config function
+def update_config(key, value, config, path_config):
+    # add or update the config key and value
+    config[key] = value
+
+    # open config file
+    with open(path_config, 'w') as file:
+        yaml.dump(config, file)
+    
+    print(f'Config params updated! \nKey: {key} \nValue: {value}')
+
+    # reload config
+    config = load_config(config_path=path_config)
+
+    return config
+
+# define load json file function
+def read_json_file(path: str) -> dict:
+    """
+    Load the json file.
+
+    Parameter:
+    ----------
+    path: str
+        Json file location.
+    
+    Return:
+    ------
+    json: dict
+        Loaded json file.
+    """
+    with open(path, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    return data
 
 # define load data function
 def load_data(fname: str) -> pd.DataFrame:
